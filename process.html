@@ -1,0 +1,78 @@
+---
+title: Process
+permalink: /process/
+description: Our simple four-step process — free audit, strategy call, build and grow together. No jargon, no guesswork, no surprises.
+
+hero:
+  eyebrow: How We Work
+  heading: Simple process.
+  heading_em: Real results.
+  text: We keep things clear and collaborative. You'll always know what we're working on, why it matters, and what's coming next — no jargon, no guesswork, no surprises.
+
+steps:
+  - title: Free Audit
+    text: We start by taking a thorough look at where you stand online — your website, Google presence, social media, and how you compare to local competitors. We find the gaps that are costing you customers.
+    note: No cost, no obligation. Most businesses are surprised by what we find.
+    button_label: Book Your Free Audit
+    button_url: /#contact
+  - title: Strategy Call
+    text: We walk you through exactly what we found and present a tailored plan. We'll explain what we'd do, why, and what you can expect in return — in plain English, not marketing speak.
+    note: You decide what makes sense for your budget and timeline. No pressure, no upselling.
+  - title: We Build
+    text: Our team gets to work on whatever we've agreed — a new website, an SEO campaign, social media content, a strategy document. You review and approve everything before it goes live.
+    note: You're kept in the loop without being buried in emails. Clear updates, on schedule.
+  - title: Grow Together
+    text: We launch, monitor, and keep improving. Your success doesn't stop when the website goes live — and neither does our work. Monthly reports tell you exactly what's working, in language you'll actually understand.
+    note: Most of our clients think of us as a long-term partner, not a one-off vendor.
+
+why:
+  label: Why It Works
+  heading: No jargon.
+  heading_em: No guesswork.
+  paragraphs:
+    - Most agencies overwhelm you with dashboards, reports, and terminology that doesn't mean anything to a business owner. We do the opposite — we make it easy to see what's happening and what it's worth.
+    - We're small enough to give you real attention, and focused enough to do it well. Every client matters to us, because our reputation in this market is everything.
+
+cta:
+  label: Step One
+  heading: Start with
+  heading_em: the free audit.
+  text: We'll review your online presence and show you exactly where you're losing customers. Free, takes 20 minutes, no strings attached.
+  button_label: Get My Free Audit
+  button_url: /#contact
+---
+{% include page-hero.html %}
+
+<section class="timeline-section">
+  <div class="timeline" id="timeline">
+    <span class="timeline-line" aria-hidden="true"><span class="timeline-progress"></span></span>
+    <ol class="timeline-list">
+    {%- for st in page.steps %}
+    <li class="timeline-step reveal">
+      <div class="timeline-num">0{{ forloop.index }}</div>
+      <div class="timeline-body">
+        <h3>{{ st.title }}</h3>
+        <p>{{ st.text }}</p>
+        <p class="timeline-note">{{ st.note }}</p>
+        {% if st.button_label %}<a href="{{ st.button_url | relative_url }}" class="btn btn-outline magnetic">{{ st.button_label }}</a>{% endif %}
+      </div>
+    </li>
+    {%- endfor %}
+    </ol>
+  </div>
+</section>
+
+{%- assign w = page.why -%}
+<section class="split split-alt split-center">
+  <div class="split-text reveal">
+    <div class="section-label">{{ w.label }}</div>
+    <h2>{{ w.heading }}<br /><em>{{ w.heading_em }}</em></h2>
+  </div>
+  <div class="split-text reveal">
+    {%- for p in w.paragraphs %}
+    <p>{{ p }}</p>
+    {%- endfor %}
+  </div>
+</section>
+
+{% include cta.html cta=page.cta %}

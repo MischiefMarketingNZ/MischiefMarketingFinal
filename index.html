@@ -1,0 +1,151 @@
+---
+title: Website Design & Social Media Management for NZ Small Businesses | Mischief Marketing
+description: Mischief Marketing helps South Island NZ small businesses get online and grow. Custom website design & build, plus social media management — no jargon, no lock-in.
+body_class: home
+hero_effect: true
+
+hero:
+  eyebrow: Digital Marketing Agency
+  heading: Digital Marketing for
+  heading_em: Small Businesses in NZ
+  tagline_prefix: Your Business,
+  # Words that flip in after "Your Business," — first one shows if JS is off
+  rotating_words:
+    - Amplified.
+    - Noticed.
+    - Found Online.
+    - Growing.
+  text: We help businesses build a commanding online presence — from stunning websites to social media that actually converts. Committed to helping you, and your business, grow.
+  hint: Move your cursor — or click the raccoon — to make a little mischief.
+  hint_touch: Tap or swipe the raccoon to make some mischief.
+
+about:
+  label: Who We Are
+  heading: Data-driven strategy.
+  heading_em: Creative execution.
+  paragraphs:
+    - Mischief Marketing is a South Island–based digital agency built on the belief that every business deserves a powerful online presence — regardless of size.
+    - Our founder brings a background in finance and accounting, which means our approach isn't just creative — it's strategic. We understand what drives revenue, and we build marketing that reflects that.
+    - We work closely with our clients to craft a digital presence that reflects the quality of what they actually do — turning browsers into buyers and building brands that last.
+  stats:
+    - num: "100%"
+      label: Client Focused
+    - num: "2"
+      label: Core Services
+    - num: NZ
+      label: Based & Bred
+    - num: "YOU"
+      label: Always First
+
+services:
+  label: What We Do
+  heading: What we do,
+  heading_em: done right.
+  text: We focus on what we're best at — building websites that convert and running social media that keeps your business front of mind.
+  items:
+    - num: 01 — Website Design & Build
+      title: A site that works as hard as you do.
+      text: We design and build fast, beautiful websites tailored to your business and your audience — ones that convert visitors into customers, not just impress them.
+      url: /website-design/
+      points:
+        - Custom design, unique to your brand
+        - Mobile-first & lightning fast
+        - Built to rank on Google
+        - Easy for you to update & manage
+    - num: 02 — Social Media Management
+      title: Content that connects. Consistently.
+      text: Consistent, compelling content that grows your audience and keeps your business top of mind. We handle the strategy, creation, and posting — so you never have to think about it.
+      url: /social-media-management/
+      points:
+        - Instagram, Facebook & more
+        - Content calendar & scheduling
+        - Engagement & community management
+        - Monthly performance reporting
+
+cta:
+  label: Let's Talk
+  heading: We'll build your website
+  heading_em: before you pay a cent.
+  text: See exactly what your new site looks like — custom-designed for your business — before committing to anything. Free. No obligation. Ever.
+  button_label: Get My Free Demo
+  button_url: /#contact
+---
+{%- assign h = page.hero -%}
+<section class="hero" id="hero">
+  <canvas class="hero-canvas" id="hero-canvas" data-src="{{ '/assets/img/logo-mark.jpg' | relative_url }}" aria-hidden="true"></canvas>
+
+  <div class="hero-copy">
+    <div class="eyebrow hero-in" style="--d:0">{{ h.eyebrow }}</div>
+    <h1 class="hero-in" style="--d:1">{{ h.heading }}<br /><em>{{ h.heading_em }}</em></h1>
+    <p class="hero-tagline hero-in" style="--d:2">
+      {{ h.tagline_prefix }}
+      <span class="rotator" data-words="{{ h.rotating_words | join: '|' | escape }}"><span class="rotator-word">{{ h.rotating_words | first }}</span></span>
+    </p>
+    <p class="hero-sub hero-in" style="--d:3">{{ h.text }}</p>
+    <div class="btn-group hero-in" style="--d:4">
+      <a href="#services" class="btn btn-primary magnetic">Our Services</a>
+      <a href="#contact" class="btn btn-outline magnetic">Get a Free Demo</a>
+    </div>
+  </div>
+
+  <div class="hero-stage" id="hero-stage">
+    <!-- Static logo: shown until the particle raccoon takes over (and if JS / motion is off) -->
+    <picture class="hero-fallback" id="hero-fallback">
+      <source srcset="{{ '/assets/img/logo-hero.webp' | relative_url }}" type="image/webp" />
+      <img src="{{ '/assets/img/logo-hero.png' | relative_url }}" alt="Mischief Marketing raccoon logo" width="700" height="700" fetchpriority="high" />
+    </picture>
+    <div class="hero-wordmark" aria-hidden="true">MISCHIEF<span>MARKETING</span></div>
+  </div>
+
+  <p class="hero-hint" aria-hidden="true"><span class="hint-dot"></span><span class="hint-mouse">{{ h.hint }}</span><span class="hint-touch">{{ h.hint_touch }}</span></p>
+  <a href="#about" class="scroll-cue" aria-label="Scroll to content"><span></span></a>
+</section>
+
+{% include marquee.html %}
+
+{%- assign a = page.about -%}
+<section class="about" id="about">
+  <div class="about-text reveal">
+    <div class="section-label">{{ a.label }}</div>
+    <h2>{{ a.heading }}<br /><em>{{ a.heading_em }}</em></h2>
+    {%- for p in a.paragraphs %}
+    <p>{{ p }}</p>
+    {%- endfor %}
+  </div>
+  <div class="stats">
+    {%- for s in a.stats %}
+    <div class="stat-card reveal spotlight" style="--d:{{ forloop.index0 }}">
+      <div class="stat-num">{{ s.num }}</div>
+      <div class="stat-label">{{ s.label }}</div>
+    </div>
+    {%- endfor %}
+  </div>
+</section>
+
+{%- assign sv = page.services -%}
+<section class="services" id="services">
+  <div class="section-head reveal">
+    <div class="section-label">{{ sv.label }}</div>
+    <h2>{{ sv.heading }}<br /><em>{{ sv.heading_em }}</em></h2>
+    <p>{{ sv.text }}</p>
+  </div>
+  <div class="services-grid">
+    {%- for s in sv.items %}
+    <a class="service-card reveal spotlight" href="{{ s.url | relative_url }}" style="--d:{{ forloop.index0 }}">
+      <div class="service-num">{{ s.num }}</div>
+      <h3>{{ s.title }}</h3>
+      <p>{{ s.text }}</p>
+      <ul class="tick-list">
+        {%- for pt in s.points %}
+        <li>{{ pt }}</li>
+        {%- endfor %}
+      </ul>
+      <span class="service-link">Learn more <span aria-hidden="true">→</span></span>
+    </a>
+    {%- endfor %}
+  </div>
+</section>
+
+{% include cta.html cta=page.cta %}
+
+{% include contact.html %}

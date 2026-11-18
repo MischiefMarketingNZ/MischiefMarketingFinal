@@ -1,0 +1,21 @@
+{%- comment -%}
+  Inner page hero. Uses page.hero: { eyebrow, heading, heading_em, text, buttons: [{label,url,style}] }
+{%- endcomment -%}
+{%- assign h = page.hero -%}
+<section class="page-hero">
+  <div class="page-hero-mark" aria-hidden="true">
+    <img src="{{ '/assets/img/logo-mark.jpg' | relative_url }}" alt="" width="304" height="304" />
+  </div>
+  <div class="page-hero-inner">
+    <div class="eyebrow reveal">{{ h.eyebrow }}</div>
+    <h1 class="reveal">{{ h.heading }}{% if h.heading_em %}<br /><em>{{ h.heading_em }}</em>{% endif %}</h1>
+    {% if h.text %}<p class="lead reveal">{{ h.text }}</p>{% endif %}
+    {% if h.buttons %}
+    <div class="btn-group reveal">
+      {%- for b in h.buttons %}
+      <a href="{{ b.url | relative_url }}" class="btn {% if b.style == 'outline' %}btn-outline{% else %}btn-primary{% endif %} magnetic">{{ b.label }}</a>
+      {%- endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>

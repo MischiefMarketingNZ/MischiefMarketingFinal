@@ -1,0 +1,50 @@
+{%- assign s = site.data.site -%}
+<section class="contact" id="contact">
+  <div class="section-label reveal">Get In Touch</div>
+  <h2 class="reveal">Let's talk about<br /><em>your business</em></h2>
+  <div class="contact-grid">
+    <div class="contact-info reveal">
+      <p>Whether you've got no website at all, or one that just isn't doing its job — we'd love to hear about your business and come back to you with real ideas.</p>
+      <dl class="contact-items">
+        <div class="contact-item"><dt>Email</dt><dd><a href="mailto:{{ s.email }}">{{ s.email }}</a></dd></div>
+        <div class="contact-item"><dt>Instagram</dt><dd><a href="{{ s.instagram_url }}" target="_blank" rel="noopener">@{{ s.instagram_handle }}</a></dd></div>
+        <div class="contact-item"><dt>Based In</dt><dd>{{ s.location }}</dd></div>
+        <div class="contact-item"><dt>Response</dt><dd>{{ s.response_time }}</dd></div>
+      </dl>
+    </div>
+
+    <form class="contact-form reveal" action="{{ '/thank-you/' | relative_url }}" method="post" name="contact">
+      <input type="hidden" name="_to" value="{{ s.form_recipient }}" />
+      <input type="hidden" name="_subject" value="New enquiry from mischiefmarketing.co.nz" />
+      <div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" /></label></div>
+      <div class="form-row">
+        <div class="field">
+          <label for="f-name">Your Name</label>
+          <input type="text" id="f-name" name="name" placeholder="Jane Smith" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label for="f-business">Business Name</label>
+          <input type="text" id="f-business" name="business" placeholder="Smith's Bakery" autocomplete="organization" />
+        </div>
+      </div>
+      <div class="field">
+        <label for="f-email">Email Address</label>
+        <input type="email" id="f-email" name="email" placeholder="jane@example.co.nz" autocomplete="email" inputmode="email" required />
+      </div>
+      <div class="field">
+        <label for="f-service">What do you need help with?</label>
+        <select id="f-service" name="service">
+          <option value="" disabled selected>Select a service…</option>
+          {%- for opt in s.form_services %}
+          <option>{{ opt }}</option>
+          {%- endfor %}
+        </select>
+      </div>
+      <div class="field">
+        <label for="f-message">Tell us about your business</label>
+        <textarea id="f-message" name="message" rows="5" placeholder="What you do, where you're based, what's not working…"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block magnetic">Send Message <span aria-hidden="true">→</span></button>
+    </form>
+  </div>
+</section>

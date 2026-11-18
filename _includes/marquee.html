@@ -1,0 +1,9 @@
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    {%- for i in (1..2) %}
+    {%- for word in site.data.site.marquee %}
+    <span class="marquee-item"><span class="star">✦</span>{{ word }}</span>
+    {%- endfor %}
+    {%- endfor %}
+  </div>
+</div>

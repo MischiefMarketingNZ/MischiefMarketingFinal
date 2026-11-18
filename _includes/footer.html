@@ -1,0 +1,13 @@
+  <footer class="footer">
+    <div class="footer-brand">
+      <img src="{{ '/assets/img/logo-icon.png' | relative_url }}" alt="" width="28" height="28" loading="lazy" />
+      <span>{{ site.data.site.business_name }}</span>
+    </div>
+    <div class="footer-copy">© {{ site.time | date: '%Y' }} {{ site.data.site.business_name }}. New Zealand.</div>
+    <nav class="footer-links" aria-label="Footer">
+      {%- for item in site.data.site.footer_links %}
+      <a href="{{ item.url | relative_url }}">{{ item.label }}</a>
+      {%- endfor %}
+      <a href="{{ site.data.site.instagram_url }}" target="_blank" rel="noopener">Instagram</a>
+    </nav>
+  </footer>

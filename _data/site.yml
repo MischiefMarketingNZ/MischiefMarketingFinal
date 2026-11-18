@@ -1,0 +1,52 @@
+# ─────────────────────────────────────────────
+#  Global business details — edit once, updates everywhere.
+#  (Editable in CloudCannon under "Data → Site Settings")
+# ─────────────────────────────────────────────
+business_name: Mischief Marketing
+email: info@mischiefmarketing.co.nz
+instagram_handle: mischiefmarketingnz
+instagram_url: https://instagram.com/mischiefmarketingnz
+location: South Island, New Zealand
+response_time: Within 24 hours
+theme_color: "#0C0C0C"
+
+# Where contact form submissions are sent (CloudCannon form handling)
+form_recipient: info@mischiefmarketing.co.nz
+
+nav:
+  - label: About
+    url: /about/
+  - label: Services
+    url: /services/
+  - label: Process
+    url: /process/
+
+nav_cta:
+  label: Work With Us
+  url: /#contact
+
+footer_links:
+  - label: Services
+    url: /services/
+  - label: Process
+    url: /process/
+  - label: Contact
+    url: /#contact
+
+# Words that scroll across the marquee band
+marquee:
+  - Website Design
+  - Social Media Management
+  - Content Creation
+  - Online Growth
+  - Custom Websites
+  - Instagram & Facebook
+  - Brand Presence
+  - South Island NZ
+
+# Options in the contact form "What do you need help with?" dropdown
+form_services:
+  - Website Design & Build
+  - Social Media Management
+  - Both — Website & Social Media
+  - Not sure — just want advice

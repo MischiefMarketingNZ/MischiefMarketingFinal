@@ -1,0 +1,28 @@
+# ─────────────────────────────────────────────
+#  Mischief Marketing — Jekyll site config
+#  Business details (email, Instagram etc.) live in _data/site.yml
+# ─────────────────────────────────────────────
+title: Mischief Marketing
+description: >-
+  Mischief Marketing helps South Island NZ small businesses get online and grow.
+  Custom website design & build, plus social media management — no jargon, no lock-in.
+url: "https://mischiefmarketing.co.nz"
+baseurl: ""
+lang: en-NZ
+
+permalink: pretty
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - .ruby-version
+  - cloudcannon.config.yml
+  - vendor
+  - node_modules
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default

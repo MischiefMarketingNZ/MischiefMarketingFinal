@@ -1,0 +1,17 @@
+  <header class="nav" id="nav">
+    <a class="nav-logo" href="{{ '/' | relative_url }}" aria-label="{{ site.data.site.business_name }} — home">
+      <img src="{{ '/assets/img/logo-icon.png' | relative_url }}" alt="" width="36" height="36" />
+      <span class="nav-logo-text">Mischief <span>Marketing</span></span>
+    </a>
+    <nav class="nav-menu" id="nav-menu" aria-label="Main">
+      <ul>
+        {%- for item in site.data.site.nav %}
+        <li><a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
+        {%- endfor %}
+        <li><a href="{{ site.data.site.nav_cta.url | relative_url }}" class="nav-cta">{{ site.data.site.nav_cta.label }}</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+      <span></span><span></span>
+    </button>
+  </header>

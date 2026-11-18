@@ -1,0 +1,61 @@
+---
+title: Services
+permalink: /services/
+description: Website design & build and social media management for South Island NZ small businesses. Two focused services, one agency.
+
+hero:
+  eyebrow: What We Do
+  heading: Everything your business
+  heading_em: needs online.
+  text: Two focused services. One agency. We handle your website and social media presence — so you can focus on running your business.
+
+items:
+  - num: "01"
+    title: Website Design
+    text: A fast, professional website built to convert visitors into customers. Mobile-first, SEO-ready, and designed to reflect the quality of what you actually do.
+    url: /website-design/
+    points:
+      - Custom design, no templates
+      - Mobile-first and fast-loading
+      - Contact forms and lead capture
+      - On-page SEO included
+  - num: "02"
+    title: Social Media Management
+    text: Consistent, professional content across Instagram and Facebook — managed entirely by us, so you never have to think about it.
+    url: /social-media-management/
+    points:
+      - Monthly content calendar
+      - Designed posts matching your brand
+      - Engagement management
+      - Monthly performance reports
+
+cta:
+  label: Let's Talk
+  heading: Not sure
+  heading_em: where to start?
+  text: We'll audit your current online presence for free and tell you exactly where the biggest opportunities are. No obligation.
+  button_label: Get a Free Audit
+  button_url: /#contact
+---
+{% include page-hero.html %}
+
+<section class="services services-page">
+  <div class="services-grid">
+    {%- for s in page.items %}
+    <a class="service-card service-card-lg reveal spotlight" href="{{ s.url | relative_url }}" style="--d:{{ forloop.index0 }}">
+      <div class="service-big-num" aria-hidden="true">{{ s.num }}</div>
+      <div class="service-num">{{ s.num }} — Service</div>
+      <h3>{{ s.title }}</h3>
+      <p>{{ s.text }}</p>
+      <ul class="tick-list">
+        {%- for pt in s.points %}
+        <li>{{ pt }}</li>
+        {%- endfor %}
+      </ul>
+      <span class="service-link">Learn more <span aria-hidden="true">→</span></span>
+    </a>
+    {%- endfor %}
+  </div>
+</section>
+
+{% include cta.html cta=page.cta %}

@@ -1,0 +1,103 @@
+---
+title: About
+permalink: /about/
+description: Mischief Marketing is a South Island–based digital agency with a finance-trained, strategy-first approach to websites and social media for NZ small businesses.
+
+hero:
+  eyebrow: About Us
+  heading: Strategy first.
+  heading_em: Always.
+  text: Mischief Marketing is a South Island–based digital agency built on one belief — that every business, no matter how small, deserves a powerful online presence, and a clear plan to back it up.
+  buttons:
+    - label: Work With Us
+      url: /#contact
+    - label: Our Services
+      url: /services/
+      style: outline
+
+who:
+  label: Who We Are
+  heading: Data-driven strategy.
+  heading_em: Creative execution.
+  paragraphs:
+    - Our founder brings a background in finance and accounting, which shapes everything we do. We don't just think about brand aesthetics — we think about revenue. What drives your customers to buy, what stops them, and what you can do to tip the balance in your favour.
+    - We work closely with every client to craft a digital presence that reflects the quality of what they actually do — turning browsers into buyers, and building brands that last.
+    - We're not a faceless agency with dozens of accounts. We're a focused, hands-on team that treats your business like our own.
+  stats:
+    - num: "100%"
+      label: Client Focused
+    - num: "2"
+      label: Core Services
+    - num: NZ
+      label: Based & Bred
+    - num: "YOU"
+      label: Always First
+
+approach:
+  label: Our Approach
+  heading: Numbers first.
+  heading_em: Then creativity.
+  paragraphs:
+    - Most marketing advice is based on what worked for someone else, somewhere else. We start with your numbers — your customers, your margins, your market — and build up from there.
+    - The result is marketing that has a purpose. Every dollar you spend has a reason. Every post, every page, every campaign is connected back to a measurable goal.
+  principles:
+    - title: Finance-trained thinking
+      text: We understand your numbers, not just your brand.
+    - title: Strategy before tactics
+      text: We don't post, build, or optimise without a plan.
+    - title: South Island focus
+      text: We know this market, its businesses, and its customers.
+    - title: Transparent process
+      text: You know what we're doing and why, at every step.
+    - title: Results over jargon
+      text: Plain language, clear outcomes, no buzzwords.
+
+cta:
+  label: Let's Talk
+  heading: Let's build something
+  heading_em: worth noticing.
+  text: Tell us about your business and where you want to take it. Free conversation, no obligation.
+  button_label: Start the Conversation
+  button_url: /#contact
+---
+{% include page-hero.html %}
+
+{%- assign w = page.who -%}
+<section class="about">
+  <div class="about-text reveal">
+    <div class="section-label">{{ w.label }}</div>
+    <h2>{{ w.heading }}<br /><em>{{ w.heading_em }}</em></h2>
+    {%- for p in w.paragraphs %}
+    <p>{{ p }}</p>
+    {%- endfor %}
+  </div>
+  <div class="stats">
+    {%- for s in w.stats %}
+    <div class="stat-card reveal spotlight" style="--d:{{ forloop.index0 }}">
+      <div class="stat-num">{{ s.num }}</div>
+      <div class="stat-label">{{ s.label }}</div>
+    </div>
+    {%- endfor %}
+  </div>
+</section>
+
+{%- assign ap = page.approach -%}
+<section class="split split-alt">
+  <div class="split-text reveal">
+    <div class="section-label">{{ ap.label }}</div>
+    <h2>{{ ap.heading }}<br /><em>{{ ap.heading_em }}</em></h2>
+    {%- for p in ap.paragraphs %}
+    <p>{{ p }}</p>
+    {%- endfor %}
+  </div>
+  <ol class="principles">
+    {%- for pr in ap.principles %}
+    <li class="reveal" style="--d:{{ forloop.index0 }}">
+      <span class="principle-num">0{{ forloop.index }}</span>
+      <div><strong>{{ pr.title }}</strong><span>{{ pr.text }}</span></div>
+    </li>
+    {%- endfor %}
+  </ol>
+</section>
+
+{% include cta.html cta=page.cta %}

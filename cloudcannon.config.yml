@@ -1,0 +1,89 @@
+# ─────────────────────────────────────────────
+#  CloudCannon configuration
+#  https://cloudcannon.com/documentation/
+#  Build: Jekyll (auto-detected from Gemfile / _config.yml)
+# ─────────────────────────────────────────────
+
+paths:
+  uploads: assets/img/uploads
+  data: _data
+
+# Global site settings (email, Instagram, nav, marquee words, form options)
+data_config:
+  site:
+    path: _data/site.yml
+
+collections_config:
+  pages:
+    path: ''
+    name: Pages
+    icon: wysiwyg
+    glob:
+      - '*.html'
+      - '!404.html'
+      - '!robots.txt'
+      - '!sitemap.xml'
+    _enabled_editors:
+      - data
+      - source
+
+_enabled_editors:
+  - data
+  - source
+
+# Friendlier labels / input types for the front matter fields used by the pages
+_inputs:
+  title:
+    comment: Page name (shown in the browser tab as "Title | Mischief Marketing")
+  description:
+    type: textarea
+    comment: Short summary for Google & social sharing (aim for 140–160 characters)
+  seo_title:
+    comment: Optional. Overrides the full browser-tab title.
+  permalink:
+    hidden: true
+  layout:
+    hidden: true
+  body_class:
+    hidden: true
+  hero_effect:
+    hidden: true
+  noindex:
+    type: switch
+    comment: Hide this page from Google
+  heading_em:
+    comment: Second line of the heading, shown in italics
+  text:
+    type: textarea
+  button_url:
+    type: url
+  url:
+    type: url
+  rotating_words:
+    comment: Words that flip in after "Your Business,"
+  hint:
+    comment: Hint under the interactive raccoon (mouse/desktop)
+  hint_touch:
+    comment: Hint under the interactive raccoon (phones/tablets)
+  email:
+    type: email
+  form_recipient:
+    type: email
+    comment: Contact form submissions are emailed here
+  instagram_url:
+    type: url
+  theme_color:
+    type: color
+
+_structures:
+  buttons:
+    values:
+      - label: Solid button
+        value:
+          label:
+          url: /#contact
+      - label: Outline button
+        value:
+          label:
+          url:
+          style: outline

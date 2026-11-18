@@ -1,0 +1,13 @@
+{%- comment -%}
+  Dark call-to-action band. Pass a front matter object:
+  {% include cta.html cta=page.cta %}
+  cta: { label, heading, heading_em, text, button_label, button_url }
+{%- endcomment -%}
+{%- assign c = include.cta -%}
+<section class="cta-band">
+  <div class="cta-glow" aria-hidden="true"></div>
+  <div class="section-label reveal">{{ c.label }}</div>
+  <h2 class="reveal">{{ c.heading }}<br /><em>{{ c.heading_em }}</em></h2>
+  <p class="reveal">{{ c.text }}</p>
+  <a href="{{ c.button_url | default: '/#contact' | relative_url }}" class="btn btn-white magnetic reveal">{{ c.button_label }}</a>
+</section>
