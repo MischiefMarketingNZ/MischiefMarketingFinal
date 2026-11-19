@@ -65,17 +65,19 @@ cta:
 {%- assign w = page.who -%}
 <section class="about">
   <div class="about-text reveal">
-    <div class="section-label">{{ w.label }}</div>
-    <h2>{{ w.heading }}<br /><em>{{ w.heading_em }}</em></h2>
-    {%- for p in w.paragraphs %}
-    <p>{{ p }}</p>
-    {%- endfor %}
+    <div class="section-label"><span data-editable="text" data-prop="who.label">{{ w.label }}</span></div>
+    <h2><span data-editable="text" data-prop="who.heading">{{ w.heading }}</span><br /><em data-editable="text" data-prop="who.heading_em">{{ w.heading_em }}</em></h2>
+    <div class="prose" data-editable="array" data-prop="who.paragraphs">
+      {%- for p in w.paragraphs %}
+      <p data-editable="array-item"><span data-editable="text" data-prop="">{{ p }}</span></p>
+      {%- endfor %}
+    </div>
   </div>
-  <div class="stats">
+  <div class="stats" data-editable="array" data-prop="who.stats">
     {%- for s in w.stats %}
-    <div class="stat-card reveal spotlight" style="--d:{{ forloop.index0 }}">
-      <div class="stat-num">{{ s.num }}</div>
-      <div class="stat-label">{{ s.label }}</div>
+    <div class="stat-card reveal spotlight" style="--d:{{ forloop.index0 }}" data-editable="array-item">
+      <div class="stat-num" data-editable="text" data-prop="num">{{ s.num }}</div>
+      <div class="stat-label" data-editable="text" data-prop="label">{{ s.label }}</div>
     </div>
     {%- endfor %}
   </div>
@@ -84,17 +86,19 @@ cta:
 {%- assign ap = page.approach -%}
 <section class="split split-alt">
   <div class="split-text reveal">
-    <div class="section-label">{{ ap.label }}</div>
-    <h2>{{ ap.heading }}<br /><em>{{ ap.heading_em }}</em></h2>
-    {%- for p in ap.paragraphs %}
-    <p>{{ p }}</p>
-    {%- endfor %}
+    <div class="section-label"><span data-editable="text" data-prop="approach.label">{{ ap.label }}</span></div>
+    <h2><span data-editable="text" data-prop="approach.heading">{{ ap.heading }}</span><br /><em data-editable="text" data-prop="approach.heading_em">{{ ap.heading_em }}</em></h2>
+    <div class="prose" data-editable="array" data-prop="approach.paragraphs">
+      {%- for p in ap.paragraphs %}
+      <p data-editable="array-item"><span data-editable="text" data-prop="">{{ p }}</span></p>
+      {%- endfor %}
+    </div>
   </div>
-  <ol class="principles">
+  <ol class="principles" data-editable="array" data-prop="approach.principles">
     {%- for pr in ap.principles %}
-    <li class="reveal" style="--d:{{ forloop.index0 }}">
+    <li class="reveal" style="--d:{{ forloop.index0 }}" data-editable="array-item">
       <span class="principle-num">0{{ forloop.index }}</span>
-      <div><strong>{{ pr.title }}</strong><span>{{ pr.text }}</span></div>
+      <div><strong data-editable="text" data-prop="title">{{ pr.title }}</strong><span data-editable="text" data-prop="text">{{ pr.text }}</span></div>
     </li>
     {%- endfor %}
   </ol>

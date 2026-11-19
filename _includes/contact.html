@@ -6,10 +6,10 @@
     <div class="contact-info reveal">
       <p>Whether you've got no website at all, or one that just isn't doing its job — we'd love to hear about your business and come back to you with real ideas.</p>
       <dl class="contact-items">
-        <div class="contact-item"><dt>Email</dt><dd><a href="mailto:{{ s.email }}">{{ s.email }}</a></dd></div>
+        <div class="contact-item"><dt>Email</dt><dd><a href="mailto:{{ s.email }}" data-editable="text" data-prop="@data[site].email">{{ s.email }}</a></dd></div>
         <div class="contact-item"><dt>Instagram</dt><dd><a href="{{ s.instagram_url }}" target="_blank" rel="noopener">@{{ s.instagram_handle }}</a></dd></div>
-        <div class="contact-item"><dt>Based In</dt><dd>{{ s.location }}</dd></div>
-        <div class="contact-item"><dt>Response</dt><dd>{{ s.response_time }}</dd></div>
+        <div class="contact-item"><dt>Based In</dt><dd data-editable="text" data-prop="@data[site].location">{{ s.location }}</dd></div>
+        <div class="contact-item"><dt>Response</dt><dd data-editable="text" data-prop="@data[site].response_time">{{ s.response_time }}</dd></div>
       </dl>
     </div>
 

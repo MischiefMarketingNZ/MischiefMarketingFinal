@@ -7,13 +7,13 @@
     <img src="{{ '/assets/img/logo-mark.jpg' | relative_url }}" alt="" width="304" height="304" />
   </div>
   <div class="page-hero-inner">
-    <div class="eyebrow reveal">{{ h.eyebrow }}</div>
-    <h1 class="reveal">{{ h.heading }}{% if h.heading_em %}<br /><em>{{ h.heading_em }}</em>{% endif %}</h1>
-    {% if h.text %}<p class="lead reveal">{{ h.text }}</p>{% endif %}
+    <div class="eyebrow reveal"><span data-editable="text" data-prop="hero.eyebrow">{{ h.eyebrow }}</span></div>
+    <h1 class="reveal"><span data-editable="text" data-prop="hero.heading">{{ h.heading }}</span>{% if h.heading_em %}<br /><em data-editable="text" data-prop="hero.heading_em">{{ h.heading_em }}</em>{% endif %}</h1>
+    {% if h.text %}<p class="lead reveal" data-editable="text" data-prop="hero.text">{{ h.text }}</p>{% endif %}
     {% if h.buttons %}
-    <div class="btn-group reveal">
+    <div class="btn-group reveal" data-editable="array" data-prop="hero.buttons">
       {%- for b in h.buttons %}
-      <a href="{{ b.url | relative_url }}" class="btn {% if b.style == 'outline' %}btn-outline{% else %}btn-primary{% endif %} magnetic">{{ b.label }}</a>
+      <a href="{{ b.url | relative_url }}" class="btn {% if b.style == 'outline' %}btn-outline{% else %}btn-primary{% endif %} magnetic" data-editable="array-item"><span data-editable="text" data-prop="label">{{ b.label }}</span></a>
       {%- endfor %}
     </div>
     {% endif %}

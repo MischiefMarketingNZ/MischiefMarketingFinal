@@ -2,12 +2,13 @@
   Dark call-to-action band. Pass a front matter object:
   {% include cta.html cta=page.cta %}
   cta: { label, heading, heading_em, text, button_label, button_url }
+  Editable regions point at the page's `cta` front matter.
 {%- endcomment -%}
 {%- assign c = include.cta -%}
 <section class="cta-band">
   <div class="cta-glow" aria-hidden="true"></div>
-  <div class="section-label reveal">{{ c.label }}</div>
-  <h2 class="reveal">{{ c.heading }}<br /><em>{{ c.heading_em }}</em></h2>
-  <p class="reveal">{{ c.text }}</p>
-  <a href="{{ c.button_url | default: '/#contact' | relative_url }}" class="btn btn-white magnetic reveal">{{ c.button_label }}</a>
+  <div class="section-label reveal"><span data-editable="text" data-prop="cta.label">{{ c.label }}</span></div>
+  <h2 class="reveal"><span data-editable="text" data-prop="cta.heading">{{ c.heading }}</span><br /><em data-editable="text" data-prop="cta.heading_em">{{ c.heading_em }}</em></h2>
+  <p class="reveal" data-editable="text" data-prop="cta.text">{{ c.text }}</p>
+  <a href="{{ c.button_url | default: '/#contact' | relative_url }}" class="btn btn-white magnetic reveal"><span data-editable="text" data-prop="cta.button_label">{{ c.button_label }}</span></a>
 </section>

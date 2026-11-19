@@ -6,15 +6,17 @@ layout: default
 {%- assign f = page.features -%}
 <section class="split">
   <div class="split-text reveal">
-    <div class="section-label">{{ f.label }}</div>
-    <h2>{{ f.heading }}<br /><em>{{ f.heading_em }}</em></h2>
-    {%- for p in f.paragraphs %}
-    <p>{{ p }}</p>
-    {%- endfor %}
+    <div class="section-label"><span data-editable="text" data-prop="features.label">{{ f.label }}</span></div>
+    <h2><span data-editable="text" data-prop="features.heading">{{ f.heading }}</span><br /><em data-editable="text" data-prop="features.heading_em">{{ f.heading_em }}</em></h2>
+    <div class="prose" data-editable="array" data-prop="features.paragraphs">
+      {%- for p in f.paragraphs %}
+      <p data-editable="array-item"><span data-editable="text" data-prop="">{{ p }}</span></p>
+      {%- endfor %}
+    </div>
   </div>
-  <ul class="feature-list">
+  <ul class="feature-list" data-editable="array" data-prop="features.points">
     {%- for pt in f.points %}
-    <li class="reveal spotlight" style="--d:{{ forloop.index0 }}">{{ pt }}</li>
+    <li class="reveal spotlight" style="--d:{{ forloop.index0 }}" data-editable="array-item"><span data-editable="text" data-prop="">{{ pt }}</span></li>
     {%- endfor %}
   </ul>
 </section>
@@ -22,15 +24,15 @@ layout: default
 {% if page.steps %}
 <section class="steps-section">
   <div class="section-head reveal">
-    <div class="section-label">{{ page.steps.label }}</div>
-    <h2>{{ page.steps.heading }}<br /><em>{{ page.steps.heading_em }}</em></h2>
+    <div class="section-label"><span data-editable="text" data-prop="steps.label">{{ page.steps.label }}</span></div>
+    <h2><span data-editable="text" data-prop="steps.heading">{{ page.steps.heading }}</span><br /><em data-editable="text" data-prop="steps.heading_em">{{ page.steps.heading_em }}</em></h2>
   </div>
-  <ol class="steps-grid">
+  <ol class="steps-grid" data-editable="array" data-prop="steps.items">
     {%- for st in page.steps.items %}
-    <li class="step-card reveal spotlight" style="--d:{{ forloop.index0 }}">
+    <li class="step-card reveal spotlight" style="--d:{{ forloop.index0 }}" data-editable="array-item">
       <span class="step-num">0{{ forloop.index }}</span>
-      <h3>{{ st.title }}</h3>
-      <p>{{ st.text }}</p>
+      <h3 data-editable="text" data-prop="title">{{ st.title }}</h3>
+      <p data-editable="text" data-prop="text">{{ st.text }}</p>
     </li>
     {%- endfor %}
   </ol>
@@ -40,13 +42,15 @@ layout: default
 {%- assign w = page.why -%}
 <section class="split split-alt split-center">
   <div class="split-text reveal">
-    <div class="section-label">{{ w.label }}</div>
-    <h2>{{ w.heading }}<br /><em>{{ w.heading_em }}</em></h2>
+    <div class="section-label"><span data-editable="text" data-prop="why.label">{{ w.label }}</span></div>
+    <h2><span data-editable="text" data-prop="why.heading">{{ w.heading }}</span><br /><em data-editable="text" data-prop="why.heading_em">{{ w.heading_em }}</em></h2>
   </div>
   <div class="split-text reveal">
-    {%- for p in w.paragraphs %}
-    <p>{{ p }}</p>
-    {%- endfor %}
+    <div class="prose" data-editable="array" data-prop="why.paragraphs">
+      {%- for p in w.paragraphs %}
+      <p data-editable="array-item"><span data-editable="text" data-prop="">{{ p }}</span></p>
+      {%- endfor %}
+    </div>
   </div>
 </section>
 

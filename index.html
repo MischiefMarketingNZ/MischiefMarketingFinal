@@ -75,13 +75,13 @@ cta:
   <canvas class="hero-canvas" id="hero-canvas" data-src="{{ '/assets/img/logo-mark.jpg' | relative_url }}" aria-hidden="true"></canvas>
 
   <div class="hero-copy">
-    <div class="eyebrow hero-in" style="--d:0">{{ h.eyebrow }}</div>
-    <h1 class="hero-in" style="--d:1">{{ h.heading }}<br /><em>{{ h.heading_em }}</em></h1>
+    <div class="eyebrow hero-in" style="--d:0"><span data-editable="text" data-prop="hero.eyebrow">{{ h.eyebrow }}</span></div>
+    <h1 class="hero-in" style="--d:1"><span data-editable="text" data-prop="hero.heading">{{ h.heading }}</span><br /><em data-editable="text" data-prop="hero.heading_em">{{ h.heading_em }}</em></h1>
     <p class="hero-tagline hero-in" style="--d:2">
-      {{ h.tagline_prefix }}
+      <span data-editable="text" data-prop="hero.tagline_prefix">{{ h.tagline_prefix }}</span>
       <span class="rotator" data-words="{{ h.rotating_words | join: '|' | escape }}"><span class="rotator-word">{{ h.rotating_words | first }}</span></span>
     </p>
-    <p class="hero-sub hero-in" style="--d:3">{{ h.text }}</p>
+    <p class="hero-sub hero-in" style="--d:3" data-editable="text" data-prop="hero.text">{{ h.text }}</p>
     <div class="btn-group hero-in" style="--d:4">
       <a href="#services" class="btn btn-primary magnetic">Our Services</a>
       <a href="#contact" class="btn btn-outline magnetic">Get a Free Demo</a>
@@ -97,7 +97,7 @@ cta:
     <div class="hero-wordmark" aria-hidden="true">MISCHIEF<span>MARKETING</span></div>
   </div>
 
-  <p class="hero-hint" aria-hidden="true"><span class="hint-dot"></span><span class="hint-mouse">{{ h.hint }}</span><span class="hint-touch">{{ h.hint_touch }}</span></p>
+  <p class="hero-hint" aria-hidden="true"><span class="hint-dot"></span><span class="hint-mouse" data-editable="text" data-prop="hero.hint">{{ h.hint }}</span><span class="hint-touch" data-editable="text" data-prop="hero.hint_touch">{{ h.hint_touch }}</span></p>
   <a href="#about" class="scroll-cue" aria-label="Scroll to content"><span></span></a>
 </section>
 
@@ -106,17 +106,19 @@ cta:
 {%- assign a = page.about -%}
 <section class="about" id="about">
   <div class="about-text reveal">
-    <div class="section-label">{{ a.label }}</div>
-    <h2>{{ a.heading }}<br /><em>{{ a.heading_em }}</em></h2>
-    {%- for p in a.paragraphs %}
-    <p>{{ p }}</p>
-    {%- endfor %}
+    <div class="section-label"><span data-editable="text" data-prop="about.label">{{ a.label }}</span></div>
+    <h2><span data-editable="text" data-prop="about.heading">{{ a.heading }}</span><br /><em data-editable="text" data-prop="about.heading_em">{{ a.heading_em }}</em></h2>
+    <div class="prose" data-editable="array" data-prop="about.paragraphs">
+      {%- for p in a.paragraphs %}
+      <p data-editable="array-item"><span data-editable="text" data-prop="">{{ p }}</span></p>
+      {%- endfor %}
+    </div>
   </div>
-  <div class="stats">
+  <div class="stats" data-editable="array" data-prop="about.stats">
     {%- for s in a.stats %}
-    <div class="stat-card reveal spotlight" style="--d:{{ forloop.index0 }}">
-      <div class="stat-num">{{ s.num }}</div>
-      <div class="stat-label">{{ s.label }}</div>
+    <div class="stat-card reveal spotlight" style="--d:{{ forloop.index0 }}" data-editable="array-item">
+      <div class="stat-num" data-editable="text" data-prop="num">{{ s.num }}</div>
+      <div class="stat-label" data-editable="text" data-prop="label">{{ s.label }}</div>
     </div>
     {%- endfor %}
   </div>
@@ -125,19 +127,19 @@ cta:
 {%- assign sv = page.services -%}
 <section class="services" id="services">
   <div class="section-head reveal">
-    <div class="section-label">{{ sv.label }}</div>
-    <h2>{{ sv.heading }}<br /><em>{{ sv.heading_em }}</em></h2>
-    <p>{{ sv.text }}</p>
+    <div class="section-label"><span data-editable="text" data-prop="services.label">{{ sv.label }}</span></div>
+    <h2><span data-editable="text" data-prop="services.heading">{{ sv.heading }}</span><br /><em data-editable="text" data-prop="services.heading_em">{{ sv.heading_em }}</em></h2>
+    <p data-editable="text" data-prop="services.text">{{ sv.text }}</p>
   </div>
-  <div class="services-grid">
+  <div class="services-grid" data-editable="array" data-prop="services.items">
     {%- for s in sv.items %}
-    <a class="service-card reveal spotlight" href="{{ s.url | relative_url }}" style="--d:{{ forloop.index0 }}">
-      <div class="service-num">{{ s.num }}</div>
-      <h3>{{ s.title }}</h3>
-      <p>{{ s.text }}</p>
-      <ul class="tick-list">
+    <a class="service-card reveal spotlight" href="{{ s.url | relative_url }}" style="--d:{{ forloop.index0 }}" data-editable="array-item">
+      <div class="service-num" data-editable="text" data-prop="num">{{ s.num }}</div>
+      <h3 data-editable="text" data-prop="title">{{ s.title }}</h3>
+      <p data-editable="text" data-prop="text">{{ s.text }}</p>
+      <ul class="tick-list" data-editable="array" data-prop="points">
         {%- for pt in s.points %}
-        <li>{{ pt }}</li>
+        <li data-editable="array-item"><span data-editable="text" data-prop="">{{ pt }}</span></li>
         {%- endfor %}
       </ul>
       <span class="service-link">Learn more <span aria-hidden="true">→</span></span>

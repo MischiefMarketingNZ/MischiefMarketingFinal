@@ -40,16 +40,16 @@ cta:
 {% include page-hero.html %}
 
 <section class="services services-page">
-  <div class="services-grid">
+  <div class="services-grid" data-editable="array" data-prop="items">
     {%- for s in page.items %}
-    <a class="service-card service-card-lg reveal spotlight" href="{{ s.url | relative_url }}" style="--d:{{ forloop.index0 }}">
+    <a class="service-card service-card-lg reveal spotlight" href="{{ s.url | relative_url }}" style="--d:{{ forloop.index0 }}" data-editable="array-item">
       <div class="service-big-num" aria-hidden="true">{{ s.num }}</div>
-      <div class="service-num">{{ s.num }} — Service</div>
-      <h3>{{ s.title }}</h3>
-      <p>{{ s.text }}</p>
-      <ul class="tick-list">
+      <div class="service-num"><span data-editable="text" data-prop="num">{{ s.num }}</span> — Service</div>
+      <h3 data-editable="text" data-prop="title">{{ s.title }}</h3>
+      <p data-editable="text" data-prop="text">{{ s.text }}</p>
+      <ul class="tick-list" data-editable="array" data-prop="points">
         {%- for pt in s.points %}
-        <li>{{ pt }}</li>
+        <li data-editable="array-item"><span data-editable="text" data-prop="">{{ pt }}</span></li>
         {%- endfor %}
       </ul>
       <span class="service-link">Learn more <span aria-hidden="true">→</span></span>

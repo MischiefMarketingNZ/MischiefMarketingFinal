@@ -46,15 +46,15 @@ cta:
 <section class="timeline-section">
   <div class="timeline" id="timeline">
     <span class="timeline-line" aria-hidden="true"><span class="timeline-progress"></span></span>
-    <ol class="timeline-list">
+    <ol class="timeline-list" data-editable="array" data-prop="steps">
     {%- for st in page.steps %}
-    <li class="timeline-step reveal">
+    <li class="timeline-step reveal" data-editable="array-item">
       <div class="timeline-num">0{{ forloop.index }}</div>
       <div class="timeline-body">
-        <h3>{{ st.title }}</h3>
-        <p>{{ st.text }}</p>
-        <p class="timeline-note">{{ st.note }}</p>
-        {% if st.button_label %}<a href="{{ st.button_url | relative_url }}" class="btn btn-outline magnetic">{{ st.button_label }}</a>{% endif %}
+        <h3 data-editable="text" data-prop="title">{{ st.title }}</h3>
+        <p data-editable="text" data-prop="text">{{ st.text }}</p>
+        <p class="timeline-note" data-editable="text" data-prop="note">{{ st.note }}</p>
+        {% if st.button_label %}<a href="{{ st.button_url | relative_url }}" class="btn btn-outline magnetic"><span data-editable="text" data-prop="button_label">{{ st.button_label }}</span></a>{% endif %}
       </div>
     </li>
     {%- endfor %}
@@ -65,13 +65,15 @@ cta:
 {%- assign w = page.why -%}
 <section class="split split-alt split-center">
   <div class="split-text reveal">
-    <div class="section-label">{{ w.label }}</div>
-    <h2>{{ w.heading }}<br /><em>{{ w.heading_em }}</em></h2>
+    <div class="section-label"><span data-editable="text" data-prop="why.label">{{ w.label }}</span></div>
+    <h2><span data-editable="text" data-prop="why.heading">{{ w.heading }}</span><br /><em data-editable="text" data-prop="why.heading_em">{{ w.heading_em }}</em></h2>
   </div>
   <div class="split-text reveal">
-    {%- for p in w.paragraphs %}
-    <p>{{ p }}</p>
-    {%- endfor %}
+    <div class="prose" data-editable="array" data-prop="why.paragraphs">
+      {%- for p in w.paragraphs %}
+      <p data-editable="array-item"><span data-editable="text" data-prop="">{{ p }}</span></p>
+      {%- endfor %}
+    </div>
   </div>
 </section>
 
